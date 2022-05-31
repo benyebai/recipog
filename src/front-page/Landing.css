@@ -1,0 +1,45 @@
+.wholesome {
+    height: 86vh;
+    width: 60vh;
+    border-radius: 5%;
+    position: absolute;
+}
+
+.main-container {
+    padding-top: 7vh;
+    display: flex;
+    height: 86vh;
+    width: 120vh;
+    
+}
+
+.master {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.title {
+    z-index: 100;
+    position: absolute;
+    font-size: 10vh;
+    padding-left: 52vh;
+    letter-spacing: .5vh;
+}
+
+.blurb {
+    z-index: 100;
+    position: absolute;
+    padding-left: 62vh;
+    padding-top: 30vh;
+    font-size: 2vh;
+}
+
+.button {
+    z-index: 100;
+    position: absolute;
+    padding-left: 62vh;
+    padding-top: 60vh;
+    font-size: 2vh;
+}

@@ -9,18 +9,23 @@ export class Login extends React.Component {
         }
         
         this.handleChange = this.handleChange.bind(this);
+        this.submit = this.submit.bind(this);
     }
 
     handleChange(e) {
-        console.log(e)
+        
         this.setState({[e.target.id]: e.target.value})
     }
 
+    async submit(e) {
+       
+    }
+
     render() {
-        console.log(this.state)
+        
         return(
             <div>
-                <form>
+                <form className="input-container">
 
                     <input
                         placeholder="email"
@@ -28,17 +33,20 @@ export class Login extends React.Component {
                         size="100px"
                         onChange={this.handleChange}
                         id='email'
+                        className=""
                     />
-                    
-                    <br />
 
                     <input
                         placeholder="password"
-                        type="text"
+                        type="password"
                         size="100px"
                         onChange={this.handleChange}
                         id='password'
                     />
+
+                    <button onClick={this.submit}>
+                        yes
+                    </button>
 
 
                 </form>
