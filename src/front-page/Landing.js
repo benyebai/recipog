@@ -2,6 +2,8 @@ import React from "react";
 import wholesome from './images/wholesome.png'
 import './Landing.css'
 import { Link } from "react-router-dom";
+import { Button } from "react-bootstrap";
+
 
 class Landing extends React.Component {
     constructor(props) {
@@ -24,9 +26,17 @@ class Landing extends React.Component {
             </p>
             
             <Link to="/register" className="button">
-              <button>
+              <Button>
                 register 
-              </button>
+              </Button>
+              
+            </Link>
+
+            <Link to="/login" className="button1">
+              <Button>
+                login 
+              </Button>
+              
             </Link>
 
           </div> 

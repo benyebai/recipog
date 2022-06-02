@@ -6,7 +6,7 @@
 }
 
 .main-container {
-    padding-top: 7vh;
+    position: absolute;
     display: flex;
     height: 86vh;
     width: 120vh;
@@ -14,32 +14,49 @@
 }
 
 .master {
+    
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-image: url("./images/food.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100vw;
+    height: 100vh;
+    
 }
 
 .title {
     z-index: 100;
     position: absolute;
     font-size: 10vh;
-    padding-left: 52vh;
+    margin-left: 52vh;
+    margin-top: 10vh;
     letter-spacing: .5vh;
 }
 
 .blurb {
     z-index: 100;
     position: absolute;
-    padding-left: 62vh;
-    padding-top: 30vh;
+    margin-left: 62vh;
+    margin-top: 30vh;
     font-size: 2vh;
 }
 
 .button {
     z-index: 100;
     position: absolute;
-    padding-left: 62vh;
-    padding-top: 60vh;
+    margin-left: 62vh;
+    margin-top: 60vh;
+    font-size: 2vh;
+}
+
+.button1 {
+    z-index: 100;
+    position: absolute;
+    margin-left: 75vh;
+    margin-top: 60vh;
     font-size: 2vh;
 }
