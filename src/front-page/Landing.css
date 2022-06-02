@@ -31,15 +31,15 @@
 .blurb {
     z-index: 100;
     position: absolute;
-    padding-left: 62vh;
-    padding-top: 30vh;
+    margin-left: 62vh;
+    margin-top: 30vh;
     font-size: 2vh;
 }
 
 .button {
     z-index: 100;
     position: absolute;
-    padding-left: 62vh;
-    padding-top: 60vh;
+    margin-left: 62vh;
+    margin-top: 60vh;
     font-size: 2vh;
 }
