@@ -3,6 +3,7 @@ import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Landing from '../front-page/Landing';
 import { Register } from '../front-page/Register';
+import {Login} from '../front-page/Login';
 
 class App extends React.Component {
   constructor(props) {
@@ -20,6 +21,7 @@ class App extends React.Component {
           <Route path="/">
             <Route index element={<Landing />} />
             <Route path="register" element={<Register />} />
+            <Route path="login" element={<Login />} />
           </Route>
         </Routes>
       </BrowserRouter>

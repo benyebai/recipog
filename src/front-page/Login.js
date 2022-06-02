@@ -1,4 +1,5 @@
 import React from "react";
+import axios from "axios";
 
 export class Login extends React.Component {
     constructor(props) {
@@ -18,7 +19,22 @@ export class Login extends React.Component {
     }
 
     async submit(e) {
-       
+        e.preventDefault();
+
+        await axios.post("http://localhost:3001/authentication", this.state)
+
+        .then((res) => {
+
+            if (res.data.rows.length >= 1) {
+                alert("success")
+               
+            }
+        })
+
+        .catch((err) => {
+            console.log("error");
+        });
+        
     }
 
     render() {
