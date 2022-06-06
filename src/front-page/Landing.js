@@ -1,43 +1,46 @@
 import React from "react";
 import wholesome from './images/wholesome.png'
+import women from './images/women.jpg'
 import './Landing.css'
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
 
+// used a class component that returns html for the landing page
 class Landing extends React.Component {
     constructor(props) {
       super(props);
-      this.state = {
-        
-    };
   }
   
     render() {
       return (
-        <div className="master">         
+        <div className="master"> 
+
+          <p className="title">RECIPOG</p>        
           <div className="main-container">
-            <img src={wholesome} alt="Logo" className="wholesome" />
-
-            <p className="title">RECIPOG</p>
-            <p className="blurb">A sharing platform for your recipes,
-             with a community that can<br /> upvote your recipes and
-              find the most popular recipes all in one app.
-            </p>
             
-            <Link to="/register" className="button">
-              <Button>
-                register 
-              </Button>
-              
-            </Link>
+            <div className="divider">
+              <img src={women} alt="Logo" className="wholesome" />
+            </div>
 
-            <Link to="/login" className="button1">
-              <Button>
-                login 
-              </Button>
-              
-            </Link>
+            <div className="divider">
+              <p className="blurb">TO CONNECT. TO INNOVATE. <br /> THE FUTURE OF NURISHMENT
+              </p>
+              <div>
+                <Link to="/register" className="button">
+                  <Button className="button btn btn-danger">
+                    register 
+                  </Button>
+                
+                </Link>
 
+                <Link to="/login" className="button">
+                  <Button className="button btn btn-danger">
+                    login 
+                  </Button>
+                
+                </Link>
+              </div>
+            </div>
           </div> 
         </div>
       );

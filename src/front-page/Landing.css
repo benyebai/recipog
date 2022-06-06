@@ -1,62 +1,57 @@
-.wholesome {
-    height: 86vh;
-    width: 60vh;
-    border-radius: 5%;
-    position: absolute;
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@600&display=swap');
+
+.master {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+    background-color: rgb(247, 225, 225);
+    
 }
 
 .main-container {
-    position: absolute;
+    height: 75vh;
+    width: 185vh;
     display: flex;
-    height: 86vh;
-    width: 120vh;
-    
+    background-color: rgb(252, 188, 188);
 }
 
-.master {
-    
+.divider {
+    height: 75vh;
+    width: 92.5vh;
+    overflow: hidden;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-image: url("./images/food.jpg");
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    width: 100vw;
-    height: 100vh;
+    flex-direction: column;
     
+
+}
+
+.wholesome {
+    height: 100%;
 }
 
 .title {
-    z-index: 100;
+    font-family: 'Syne', sans-serif;
+    font-size: 5vh;
     position: absolute;
-    font-size: 10vh;
-    margin-left: 52vh;
-    margin-top: 10vh;
-    letter-spacing: .5vh;
+    margin-bottom: 85vh;
 }
 
 .blurb {
-    z-index: 100;
-    position: absolute;
-    margin-left: 62vh;
-    margin-top: 30vh;
-    font-size: 2vh;
+    text-align: center; 
+    font-family: 'Syne', sans-serif;
+    font-size: 3vh;
+    padding-bottom: 3vh;
 }
 
 .button {
-    z-index: 100;
-    position: absolute;
-    margin-left: 62vh;
-    margin-top: 60vh;
-    font-size: 2vh;
-}
-
-.button1 {
-    z-index: 100;
-    position: absolute;
-    margin-left: 75vh;
-    margin-top: 60vh;
-    font-size: 2vh;
+    font-family: 'Syne', sans-serif;
+    font-size: 1.4vh;
+    width: 10vh;
+    height: 4vh;
+    background-color: rgb(255, 88, 88);
 }
