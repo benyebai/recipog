@@ -10,7 +10,8 @@ export class Home extends React.Component {
         super(props);
         this.state = {
             search: "",
-            data: null
+            data: null,
+            bruh: "penis"
         }
         
     }
@@ -19,7 +20,7 @@ export class Home extends React.Component {
         const options = {
             method: 'GET',
             url: 'https://tasty.p.rapidapi.com/feeds/list',
-            params: {size: '5', timezone: '+0700', vegetarian: 'false', from: '0'},
+            params: {size: '5', timezone: '+0100', vegetarian: 'false', from: '0'},
             headers: {
                 'X-RapidAPI-Key': '8b3b76d149msh8e93702247b0dcfp19dd88jsn9f526fa40eda',
                 'X-RapidAPI-Host': 'tasty.p.rapidapi.com'
@@ -35,7 +36,13 @@ export class Home extends React.Component {
                     this.setState({data: response.data.results[i].items})
                     
                     console.log(response.data.results[i].items)
-                    axios.post("http://localhost:3001/api/trendingmorning", {data: response.data.results[i].items})
+
+                    let dataa = []
+                    for (let j = 0; j < 5; j++) {
+                        dataa.push(response.data.results[i].items[j])
+                    }
+
+                    axios.post("http://localhost:3001/api/trending", {data: dataa})
 
                     .then((res) => {
                         console.log(res)
@@ -60,7 +67,7 @@ export class Home extends React.Component {
         if (this.state.data) {  
             return(
                 <div className="main">
-                    <DisplayBasic data={this.state.data[3]} />
+                    <DisplayBasic data={this.state.data[0]} />
                 </div>
             );
         }
