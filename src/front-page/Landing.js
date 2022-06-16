@@ -25,6 +25,8 @@ class Landing extends React.Component {
             <div className="divider">
               <p className="blurb">TO CONNECT. TO INNOVATE. <br /> THE FUTURE OF NURISHMENT
               </p>
+
+              {/* Link componenets that transport you to different URLS when you press the buttons*/ }
               <div>
                 <Link to="/register" className="button">
                   <Button className="button btn btn-danger">

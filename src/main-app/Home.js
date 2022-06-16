@@ -2,6 +2,7 @@ import React from "react";
 import axios from "axios";
 import { Button } from "react-bootstrap";
 import DisplayBasic from "./components/displayBasic"
+import "./Home.css"
 
 
 
@@ -15,17 +16,22 @@ export class Home extends React.Component {
         
     }
 
-    async componentDidMount() {
+
+    // a special function that happens first thing before the render
+    componentDidMount() {
         
+        // gets current date using a function from NODE
         let date_ob = new Date();
         let date = ("0" + date_ob.getDate()).slice(-2);
         let month = ("0" + (date_ob.getMonth() + 1)).slice(-2);
         let year = date_ob.getFullYear();
 
-        
-        await axios.get("http://localhost:3001/api/gettrending/" + year + "-" + month + "-" + date)
+        // get request for retrieving info from the database
+        axios.get("http://localhost:3001/api/gettrending/" + year + "-" + month + "-" + date)
         .then((res) => {
             console.log(res.data.data)
+
+            // if nothing was retrieved, we must actually get the info from the API
             if (res.data.data == null) {
                 
                 const options = {
@@ -38,6 +44,7 @@ export class Home extends React.Component {
                     }
                 };
                 
+                // gets the first 6 recipes from the trending recipe api call, stores in database, and displays
                 axios.request(options)
                 
                 .then((response) => {
@@ -82,6 +89,7 @@ export class Home extends React.Component {
 
     render() {
         
+        // since component did mount runs before render, data is null at first, so we must make sure it exists before render
         if (this.state.data) {  
 
             let displayedTrending = []
@@ -91,6 +99,7 @@ export class Home extends React.Component {
 
             return(
                 <div className="main">
+                    <h1>TRENDING TODAY!</h1>
                     {displayedTrending}
                 </div>
             );

@@ -25,7 +25,8 @@ export class Register extends React.Component {
         e.preventDefault();
 
         if (this.state.email.length !== 0 && this.state.password.length !== 0  && this.state.username.length !== 0) {
-        
+            
+            // goes and retrieves account with same username or email, and if it actually retrieves something that means ur email or username is taken
             await axios.post("http://localhost:3001/checkemail", this.state)
 
             .then((res) => {
@@ -42,7 +43,7 @@ export class Register extends React.Component {
 
                 } else {
 
-                    
+                    // adds your account to the database
                     axios.post("http://localhost:3001/adduser", this.state)
                     .then((res) => {
                         console.log(res)

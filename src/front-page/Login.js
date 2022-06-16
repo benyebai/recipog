@@ -22,11 +22,12 @@ export class Login extends React.Component {
 
     //submit button, asynchronous 
     async submit(e) {
-        //dosent refresh page
+        //prevents it from refreshing the page whenever a "event" happens
         e.preventDefault();
 
         //we wait for this function to finish running
         //a post request, which has .then for whats next, .catch in case of error
+        // checking wether u have the password and email correct and sends u to next page
         await axios.post("http://localhost:3001/authentication", this.state)
 
         .then((res) => {

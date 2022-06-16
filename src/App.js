@@ -5,16 +5,11 @@ import Landing from './front-page/Landing';
 import { Register } from './front-page/Register';
 import {Login} from './front-page/Login';
 import { Home } from './main-app/Home';
+import { DisplayDetailed } from './main-app/displayDetailed';
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      
-  };
-}
 
-  render() {
+function App() {
+    // based on the URL, takes you to different pages
     return (  
       <div>
       <BrowserRouter>
@@ -24,12 +19,13 @@ class App extends React.Component {
             <Route path="register" element={<Register />} />
             <Route path="login" element={<Login />} />
             <Route path="home" element={<Home />} />
+            <Route path="recipe/:id" element={<DisplayDetailed />} />
           </Route>
         </Routes>
       </BrowserRouter>
     </div>
     );
   }
-}
+
 
 export default App;
