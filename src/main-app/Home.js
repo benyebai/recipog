@@ -29,7 +29,6 @@ export class Home extends React.Component {
         // get request for retrieving info from the database
         axios.get("http://localhost:3001/api/gettrending/" + year + "-" + month + "-" + date)
         .then((res) => {
-            console.log(res.data.data)
 
             // if nothing was retrieved, we must actually get the info from the API
             if (res.data.data == null) {
@@ -88,7 +87,7 @@ export class Home extends React.Component {
     }
 
     render() {
-        
+    
         // since component did mount runs before render, data is null at first, so we must make sure it exists before render
         if (this.state.data) {  
 

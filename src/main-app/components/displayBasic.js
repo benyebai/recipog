@@ -1,5 +1,6 @@
 import React from "react";
 import './displayBasic.css'
+import {Link} from 'react-router-dom';
 
 class DisplayBasic extends React.Component {
     constructor(props) {
@@ -59,12 +60,12 @@ class DisplayBasic extends React.Component {
                 </div>
 
                 <div className="nutrition">
-                    <h1>NUTRITION</h1>
+                    <h1 className="title-nutrition" >NUTRITION</h1>
                     {nutrition}
                 </div>
 
                 <div>
-                <h1>INGREDIENTS</h1>
+                <h1 className="title-nutrition">INGREDIENTS</h1>
                     {ingredients}
                 </div>
 
