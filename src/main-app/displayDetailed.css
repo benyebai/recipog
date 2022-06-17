@@ -1,0 +1,24 @@
+.detailed-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.ingre-instruct {
+    width: 1600px;
+    height: 800px;
+    background-color: aqua;
+    display: flex;
+}
+
+.instruction {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 800px;
+    height: 800px;
+    background-color: bisque;
+}

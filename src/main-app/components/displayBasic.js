@@ -38,7 +38,7 @@ class DisplayBasic extends React.Component {
             for (let i = 0; i < this.state.sections[0].components.length; i++) {
                 if (this.state.sections[0].components[i].raw_text != "n/a") {
                     const ingredient = <div>
-                        <h2 className="nutrition-text">
+                        <h2 className="nutrition-text" >
                             {this.state.sections[0].components[i].raw_text}
                         </h2>
                     </div>
