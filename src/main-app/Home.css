@@ -6,3 +6,17 @@
     text-align: center;
 }
 
+.navbar {
+
+    background-color: rgb(197, 197, 197);
+    height: 8vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-link {
+    text-decoration: none;
+    color: black;
+}

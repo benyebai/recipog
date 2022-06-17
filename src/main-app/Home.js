@@ -10,7 +10,6 @@ export class Home extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            search: "",
             data: null
         }
         
@@ -31,6 +30,7 @@ export class Home extends React.Component {
         .then((res) => {
 
             // if nothing was retrieved, we must actually get the info from the API
+            console.log(res.data.data)
             if (res.data.data == null) {
                 
                 const options = {
@@ -38,7 +38,7 @@ export class Home extends React.Component {
                     url: 'https://tasty.p.rapidapi.com/feeds/list',
                     params: {size: '5', timezone: '+0100', vegetarian: 'false', from: '0'},
                     headers: {
-                        'X-RapidAPI-Key': '8b3b76d149msh8e93702247b0dcfp19dd88jsn9f526fa40eda',
+                        'X-RapidAPI-Key': '539bdafaefmsh23c5e3073cb4ca5p1d5a73jsnf211d6f72f99',
                         'X-RapidAPI-Host': 'tasty.p.rapidapi.com'
                     }
                 };
@@ -97,7 +97,14 @@ export class Home extends React.Component {
             }
 
             return(
+
+                
                 <div className="main">
+                    
+                    <div className="navbar" >
+                        <a className="search-link" href="search">Search</a>
+                    </div>
+
                     <h1>TRENDING TODAY!</h1>
                     {displayedTrending}
                 </div>

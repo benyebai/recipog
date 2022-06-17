@@ -6,6 +6,7 @@ import { Register } from './front-page/Register';
 import {Login} from './front-page/Login';
 import { Home } from './main-app/Home';
 import { DisplayDetailed } from './main-app/displayDetailed';
+import { Search } from './main-app/Search';
 
 
 class App extends React.Component {
@@ -32,6 +33,7 @@ class App extends React.Component {
               <Route path="login" element={<Login />} />
               <Route path="home" element={<Home />} />
               <Route path="recipe/:id" element={<Wrapper />} />
+              <Route path="search" element={<Search />} />
             </Route>
           </Routes>
         </BrowserRouter>

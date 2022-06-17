@@ -21,10 +21,15 @@ export class RecipeCarousel extends React.Component {
         let carouselArray = []
         for (let i = 0; i < this.state.data.length; i++) {
             let carouselItem = 
+            <a href={this.state.data[i].id} >
             <div >
                 <p><b>{this.state.data[i].name}</b></p>
+
+                
                 <img src={this.state.data[i].thumbnail_url} alt="food" />
+                
             </div>
+            </a>
 
             carouselArray.push(carouselItem)
         }

@@ -7,7 +7,7 @@
 
 .ingre-instruct {
     width: 1600px;
-    height: 800px;
+
     background-color: aqua;
     display: flex;
 }
@@ -19,6 +19,8 @@
     align-items: center;
     justify-content: center;
     width: 800px;
-    height: 800px;
     background-color: bisque;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    
 }

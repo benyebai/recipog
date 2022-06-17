@@ -24,55 +24,59 @@ export class DisplayDetailed extends React.Component {
 
         let similar_ids = []
 
+        let found_similar = true
         
         // get similar reciepes from API
 
         await axios.get("http://localhost:3001/api/getsimilar/" + temp_id)
 
         .then((res) => {
-
-            if (res.data === "") {
-                
-                const options = {
-                method: 'GET',
-                url: 'https://tasty.p.rapidapi.com/recipes/list-similarities',
-                params: {recipe_id: this.state.id},
-                headers: {
-                    'X-RapidAPI-Key': '8b3b76d149msh8e93702247b0dcfp19dd88jsn9f526fa40eda',
-                    'X-RapidAPI-Host': 'tasty.p.rapidapi.com'
-                }
-                };
             
-                axios.request(options)
-                
-                .then(function (response) {
-                    
-                    // sometimes results might have less than 6, so we have to take that into account
-                    if (response.data.results.length < 6) {
-                        for (let i = 0; i < response.data.results.length; i++) {
-                            similar_ids.push(response.data.results[i].id)
-                        }
-
-                        axios.post("http://localhost:3001/api/storesimilar", {id: temp_id, data: similar_ids})
-
-                    } else {
-                        for (let i = 0; i < 6; i++) {
-                            similar_ids.push(response.data.results[i].id)
-                        }
-
-                        axios.post("http://localhost:3001/api/storesimilar", {id: temp_id, data: similar_ids})
-
-                    }
-                    
-                })
-
-                
+            
+            if (res.data === "") {
+                found_similar = false
             } else {
                 similar_ids= res.data.similar
             }
         })
 
         
+        if (!found_similar) {
+
+            const options = {
+            method: 'GET',
+            url: 'https://tasty.p.rapidapi.com/recipes/list-similarities',
+            params: {recipe_id: this.state.id},
+            headers: {
+                'X-RapidAPI-Key': '539bdafaefmsh23c5e3073cb4ca5p1d5a73jsnf211d6f72f99',
+                'X-RapidAPI-Host': 'tasty.p.rapidapi.com'
+            }
+            };
+        
+            await axios.request(options)
+            
+            .then(function (response) {
+                
+                // sometimes results might have less than 6, so we have to take that into account
+                if (response.data.results.length < 6) {
+                    for (let i = 0; i < response.data.results.length; i++) {
+                        similar_ids.push(response.data.results[i].id)
+                    }
+
+                    axios.post("http://localhost:3001/api/storesimilar", {id: temp_id, data: similar_ids})
+
+                } else {
+                    for (let i = 0; i < 6; i++) {
+                        similar_ids.push(response.data.results[i].id)
+                    }
+
+                    axios.post("http://localhost:3001/api/storesimilar", {id: temp_id, data: similar_ids})
+
+                }
+                
+            })
+        }
+
         // get recipe, if not in database, request from API then store in database
         await axios.get("http://localhost:3001/api/getrecipe/" + temp_id)
         .then((res) => {
@@ -85,7 +89,7 @@ export class DisplayDetailed extends React.Component {
                     url: 'https://tasty.p.rapidapi.com/recipes/get-more-info',
                     params: {id: this.state.id},
                     headers: {
-                    'X-RapidAPI-Key': '8b3b76d149msh8e93702247b0dcfp19dd88jsn9f526fa40eda',
+                    'X-RapidAPI-Key': '539bdafaefmsh23c5e3073cb4ca5p1d5a73jsnf211d6f72f99',
                     'X-RapidAPI-Host': 'tasty.p.rapidapi.com'
                     }
                 };
@@ -107,10 +111,15 @@ export class DisplayDetailed extends React.Component {
             }
         })
         
-
+        console.log(similar_ids)
         // where the error happens since self.state.similarIDs dosent yet exist
         let info_array = []
         for (let i = 0; i < similar_ids.length; i++) {
+
+            // pause for a second after arbituary run for 1 second so i dont reach limit for api calls
+            if (i == 2) {  
+                await new Promise(r => setTimeout(r, 1000));
+            }
 
             await axios.get("http://localhost:3001/api/getrecipe/" + similar_ids[i])
             .then((res) => {
@@ -123,7 +132,7 @@ export class DisplayDetailed extends React.Component {
                         url: 'https://tasty.p.rapidapi.com/recipes/get-more-info',
                         params: {id: similar_ids[i]},
                         headers: {
-                        'X-RapidAPI-Key': '8b3b76d149msh8e93702247b0dcfp19dd88jsn9f526fa40eda',
+                        'X-RapidAPI-Key': '539bdafaefmsh23c5e3073cb4ca5p1d5a73jsnf211d6f72f99',
                         'X-RapidAPI-Host': 'tasty.p.rapidapi.com'
                         }
                     };
@@ -149,6 +158,13 @@ export class DisplayDetailed extends React.Component {
         }
 
         self.setState({similarIDsInfo: info_array})
+
+
+
+
+
+
+
 
     }
     
@@ -229,6 +245,12 @@ export class DisplayDetailed extends React.Component {
                     
                     <h2>similar to this recipe!</h2>
                     <RecipeCarousel data={this.state.similarIDsInfo} />
+                </div>
+            )
+        } else {
+            return (
+                <div>
+                    <h1>loading</h1>
                 </div>
             )
         }
